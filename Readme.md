@@ -4,6 +4,10 @@ This is a simple CRUD application using Angular and .NET Core created following 
 
 https://www.youtube.com/watch?v=dtthbiP3SE0
 
+And material design.
+
+https://www.youtube.com/watch?v=a4SFciAUXFo
+
 ## Notes
 
 ### Commands
@@ -28,3 +32,10 @@ ng g c edit-hero --skip-tests
 Angular Language Service
 
 https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
+
+### Add Angular Materiel
+
+```
+ng add @angular/material
+```
+

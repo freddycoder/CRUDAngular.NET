@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'SuperHero.UI';
   heroes: SuperHero[] = [];
   selectedHero?: SuperHero;
+  columnToDisplay = ['name', 'firstName', 'lastName', 'place', 'button']
 
   constructor(private superHeroService: SuperHeroService) {
     
