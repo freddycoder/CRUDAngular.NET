@@ -1,6 +1,6 @@
 # SuperHero.UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0 and updated to version 18.
 
 ## Development server
 

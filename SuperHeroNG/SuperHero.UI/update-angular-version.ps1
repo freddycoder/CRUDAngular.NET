@@ -1,6 +1,6 @@
 Write-Host "A script to update the angular version in the project"
 
-$version = "17"
+$version = "18"
 
 Write-Host "ng update preview"
 ng update
