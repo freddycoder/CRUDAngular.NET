@@ -1,6 +1,6 @@
 # Start the Angular project
 Set-Location .\SuperHeroNG\SuperHero.UI
-Start-Process npm -ArgumentList "start"
+Start-Process npm.cmd -ArgumentList "start"
 Set-Location ..\..
 
 # Start the API
