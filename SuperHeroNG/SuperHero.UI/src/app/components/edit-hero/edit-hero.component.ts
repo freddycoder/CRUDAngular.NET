@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuperHero } from 'src/app/models/super-hero';
@@ -16,11 +16,11 @@ import { SuperHeroService } from 'src/app/services/super-hero.service';
     ]
 })
 export class EditHeroComponent {
+  private readonly superHeroService = inject(SuperHeroService);
+
 
   @Input() hero?: SuperHero;
   @Output() heroesUpdated = new EventEmitter<SuperHero[]>();
-
-  constructor(private readonly superHeroService: SuperHeroService) { }
 
   updateHero(hero: SuperHero) {
     this.superHeroService.updateSuperHeroes(hero).subscribe(result => {

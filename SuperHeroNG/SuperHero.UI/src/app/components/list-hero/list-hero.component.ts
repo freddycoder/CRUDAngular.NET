@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EditHeroComponent } from '../edit-hero/edit-hero.component';
 import { SuperHero } from 'src/app/models/super-hero';
 import { SuperHeroService } from 'src/app/services/super-hero.service';
@@ -18,14 +18,12 @@ import { MatButtonModule } from '@angular/material/button';
   ],
 })
 export class ListHeroComponent {
+  private readonly superHeroService = inject(SuperHeroService);
+
   title = 'SuperHero.UI';
   heroes: SuperHero[] = [];
   selectedHero?: SuperHero;
   columnToDisplay = ['name', 'firstName', 'lastName', 'place', 'button']
-
-  constructor(private readonly superHeroService: SuperHeroService) {
-
-  }
 
   ngOnInit() {
     this.superHeroService
