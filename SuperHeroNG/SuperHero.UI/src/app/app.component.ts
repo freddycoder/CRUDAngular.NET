@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.service.getOpenAPISpec().subscribe(result => {
             this.spec = result;
-            this.links = Object.keys(result.components.schemas);
+            this.links = Object.keys(result.components.schemas)
+                               .sort((a, b) => a.localeCompare(b) * -1);
         });
     }
 }

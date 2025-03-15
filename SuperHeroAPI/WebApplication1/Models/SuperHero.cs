@@ -1,6 +1,6 @@
-namespace WebApplication1;
+namespace WebApplication1.Models;
 
-public class SuperHero
+public class SuperHero : IId
 {
     public int Id { get; set; }
 

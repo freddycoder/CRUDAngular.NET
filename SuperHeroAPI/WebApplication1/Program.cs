@@ -20,6 +20,17 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Automatically migrate the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<DataContext>();
+    if (context.Database.IsRelational())
+    {
+        await context.Database.MigrateAsync();
+    }
+}
+
 app.UseCors("SuperHeroOrigins");
 
 app.UseHttpsRedirection();

@@ -1,0 +1,14 @@
+<div *ngIf="entity">
+    <h2>{{ entity.name }}</h2>
+    @for (prop of this.fields; track $index) {
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ prop }}</mat-label>
+                <input [(ngModel)]="entity[prop]" placeholder="{{ prop }}" matInput />
+            </mat-form-field>
+        </div>
+    }
+    <button mat-stroked-button color="primary" (click)="update(entity)" *ngIf="entity.id">Save</button>
+    <button mat-stroked-button color="secondary" (click)="deleteEntity(entity)" *ngIf="entity.id">Delete</button>
+    <button mat-stroked-button color="primary" (click)="create(entity)" *ngIf="!entity.id">Create</button>
+</div>

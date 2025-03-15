@@ -6,9 +6,9 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class SuperHeroController : GenericController<SuperHero>
+public class PetController : GenericController<Pet>
 {
-    public SuperHeroController(DataContext context) : base(context)
+    public PetController(DataContext context) : base(context)
     {
         
     }

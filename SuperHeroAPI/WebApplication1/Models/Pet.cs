@@ -1,6 +1,6 @@
-namespace WebApplication1;
+namespace WebApplication1.Models;
 
-public class Pet
+public class Pet : IId
 {
     public int Id { get; set; }
 
