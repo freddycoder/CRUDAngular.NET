@@ -21,11 +21,8 @@ jobs:
       with:
         node-version: '22'
 
-    - name: Change directory
-      run: cd SuperHeroNG/SuperHero.UI
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build Angular app
-      run: npm run build
+    - name: AQ-Workflow
+      run: |
+        cd SuperHeroNG/SuperHero.UI
+        npm install
+        npm run build
