@@ -1,1 +1,28 @@
-<app-list-hero></app-list-hero>
+<header>
+    <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>SuperHeroNG</span>
+        @for (item of links; track $index) {
+            <span style="margin-left: 10px;">
+                <a href="/{{item}}">{{item}}</a>
+            </span>
+        }
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
+</header>
+<main>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>
+<footer>
+    <p>SuperHeroNG</p>
+</footer>

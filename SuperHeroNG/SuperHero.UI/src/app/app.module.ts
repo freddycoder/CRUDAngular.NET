@@ -9,8 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ListHeroComponent } from "./components/list-hero/list-hero.component";
 import { AppComponent } from './app.component';
+import { RouterOutlet } from '@angular/router';
 
 @NgModule({
     imports: [
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
         MatTableModule,
         MatFormFieldModule,
         MatInputModule, 
-        ListHeroComponent
+        RouterOutlet
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi())

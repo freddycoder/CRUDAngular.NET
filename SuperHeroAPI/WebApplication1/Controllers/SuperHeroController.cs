@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 
 namespace WebApplication1.Controllers;
+
 [ApiController]
 [Route("[controller]")]
 public class SuperHeroController : ControllerBase
@@ -17,24 +18,24 @@ public class SuperHeroController : ControllerBase
     }
 
     [HttpGet(Name = "GetSuperHeroes")]
-    public async Task<ActionResult<IEnumerable<SuperHero>>> GetSuperHeroes()
+    public async Task<ActionResult<IEnumerable<SuperHero>>> GetSuperHeroes(CancellationToken token)
     {
-        return Ok(await _context.SuperHeroes.ToListAsync());
+        return Ok(await _context.SuperHeroes.ToListAsync(token));
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<SuperHero>>> CreateSuperHero(SuperHero hero)
+    public async Task<ActionResult<List<SuperHero>>> CreateSuperHero(SuperHero hero, CancellationToken token)
     {
         _context.SuperHeroes.Add(hero);
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(token);
 
-        return Ok(await _context.SuperHeroes.ToListAsync());
+        return Ok(await _context.SuperHeroes.ToListAsync(token));
     }
 
     [HttpPut]
-    public async Task<ActionResult<List<SuperHero>>> UpdateSuperHero(SuperHero hero)
+    public async Task<ActionResult<List<SuperHero>>> UpdateSuperHero(SuperHero hero, CancellationToken token)
     {
-        var dbHero = await _context.SuperHeroes.FindAsync(hero.Id);
+        var dbHero = await _context.SuperHeroes.FindAsync([hero.Id], token);
 
         if (dbHero == null)
         {
@@ -46,15 +47,15 @@ public class SuperHeroController : ControllerBase
         dbHero.LastName = hero.LastName;
         dbHero.Place = hero.Place;
 
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(token);
 
-        return Ok(await _context.SuperHeroes.ToListAsync());
+        return Ok(await _context.SuperHeroes.ToListAsync(token));
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<List<SuperHero>>> DeleteSuperHero(int id)
+    public async Task<ActionResult<List<SuperHero>>> DeleteSuperHero(int id, CancellationToken token)
     {
-        var dbHero = await _context.SuperHeroes.FindAsync(id);
+        var dbHero = await _context.SuperHeroes.FindAsync([id], token);
 
         if (dbHero == null)
         {
@@ -63,8 +64,8 @@ public class SuperHeroController : ControllerBase
 
         _context.SuperHeroes.Remove(dbHero);
 
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(token);
 
-        return Ok(await _context.SuperHeroes.ToListAsync());
+        return Ok(await _context.SuperHeroes.ToListAsync(token));
     }
 }

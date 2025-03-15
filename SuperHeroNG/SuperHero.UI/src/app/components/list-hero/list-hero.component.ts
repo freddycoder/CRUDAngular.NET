@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { EditHeroComponent } from '../edit-hero/edit-hero.component';
 import { SuperHero } from 'src/app/models/super-hero';
-import { SuperHeroService } from 'src/app/services/super-hero.service';
+import { OpenApiService } from 'src/app/services/openapi.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,19 +18,18 @@ import { MatButtonModule } from '@angular/material/button';
   ],
 })
 export class ListHeroComponent {
-  private readonly superHeroService = inject(SuperHeroService);
+  private readonly api = inject(OpenApiService);
 
-  title = 'SuperHero.UI';
   heroes: SuperHero[] = [];
   selectedHero?: SuperHero;
   columnToDisplay = ['name', 'firstName', 'lastName', 'place', 'button']
 
   ngOnInit() {
-    this.superHeroService
-      .getSuperHeroes()
-      .subscribe((result: SuperHero[]) => {
+    this.api
+      .get<SuperHero>("SuperHero")
+      .subscribe(result => {
         this.heroes = result;
-      })
+      });
   }
 
   initNewHero() {

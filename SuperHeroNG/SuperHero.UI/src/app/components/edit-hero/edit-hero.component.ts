@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SuperHero } from 'src/app/models/super-hero';
-import { SuperHeroService } from 'src/app/services/super-hero.service';
+import { OpenApiService } from 'src/app/services/openapi.service';
 
 @Component({
     selector: 'app-edit-hero',
@@ -20,27 +20,27 @@ import { SuperHeroService } from 'src/app/services/super-hero.service';
     ]
 })
 export class EditHeroComponent {
-  private readonly superHeroService = inject(SuperHeroService);
+  private readonly superHeroService = inject(OpenApiService);
 
   @Input() hero?: SuperHero;
   @Output() heroesUpdated = new EventEmitter<SuperHero[]>();
 
   updateHero(hero: SuperHero) {
-    this.superHeroService.updateSuperHeroes(hero).subscribe(result => {
+    this.superHeroService.update<SuperHero>("SuperHero", hero).subscribe(result => {
       this.heroesUpdated.emit(result);
-    })
+    });
   }
 
   deleteHero(hero: SuperHero) {
-    this.superHeroService.deleteHero(hero).subscribe(result => {
+    this.superHeroService.delete<SuperHero>("SuperHero", hero.id).subscribe(result => {
       this.heroesUpdated.emit(result);
       this.hero = undefined;
-    })
+    });
   }
 
   createHero(hero: SuperHero) {
-    this.superHeroService.createHero(hero).subscribe(result => {
+    this.superHeroService.create("SuperHero", hero).subscribe(result => {
       this.heroesUpdated.emit(result);
-    })
+    });
   }
 }

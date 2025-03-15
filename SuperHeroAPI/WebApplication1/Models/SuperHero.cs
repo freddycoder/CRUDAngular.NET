@@ -11,4 +11,6 @@ public class SuperHero
     public string? LastName { get; set; }
 
     public string? Place { get; set; }
+
+    public List<Pet>? Pets { get; set; }
 }
