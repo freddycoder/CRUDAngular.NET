@@ -10,6 +10,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+For example, to generate a new component name list-hero run `ng generate component list-hero` inside de src/app/components folder. It will create a directory name list-hero and the following files:
+
+```
+src/app/components/list-hero/list-hero.component.css
+src/app/components/list-hero/list-hero.component.html
+src/app/components/list-hero/list-hero.component.spec.ts
+src/app/components/list-hero/list-hero.component.ts
+```
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
