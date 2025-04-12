@@ -1,9 +1,9 @@
 # Start the Angular project
-Set-Location .\SuperHeroNG\SuperHero.UI
+Set-Location .\SuperHeroNG
 Start-Process npm.cmd -ArgumentList "start"
-Set-Location ..\..
+Set-Location ..
 
 # Start the API
-Set-Location .\SuperHeroAPI\WebApplication1
+Set-Location .\SuperHeroAPI
 Start-Process dotnet -ArgumentList "watch run"
-Set-Location ..\..
+Set-Location ..
