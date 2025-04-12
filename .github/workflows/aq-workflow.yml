@@ -23,7 +23,7 @@ jobs:
 
     - name: AQ-Workflow
       run: |
-        cd SuperHero.UI
+        cd SuperHeroNG
         npm install
         npm run build
 
