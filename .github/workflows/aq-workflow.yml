@@ -30,7 +30,7 @@ jobs:
       run: |
         cd SuperHeroNG
         npm install
-        ng build --base-href /CRUDAngular.NET/ --configuration production
+        npm run build-prod
 
   build-backend:
     runs-on: ubuntu-latest
