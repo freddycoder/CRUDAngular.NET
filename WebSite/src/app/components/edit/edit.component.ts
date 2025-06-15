@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,12 +13,11 @@ import { OpenApiService } from 'src/app/services/openapi.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
   imports: [
-    NgIf,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
     FormsModule
-  ]
+]
 })
 export class EditComponent implements OnInit {
   private readonly api = inject(OpenApiService);

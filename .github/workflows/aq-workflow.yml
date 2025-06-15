@@ -28,7 +28,7 @@ jobs:
 
     - name: AQ-Workflow
       run: |
-        cd SuperHeroNG
+        cd WebSite
         npm install
         npm run build-prod
 
@@ -42,11 +42,11 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
 
     - name: AQ-Workflow
       run: |
-        cd SuperHeroAPI
+        cd API
         dotnet restore SuperHeroAPI.csproj
         dotnet build SuperHeroAPI.csproj --configuration Release --no-restore
 
@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         # Upload dist repository
-        path: './SuperHeroNG/dist/super-hero.ui/browser'
+        path: './WebSite/dist/super-hero.ui/browser'
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4

@@ -1,10 +1,10 @@
-# CRUD Angular 19 .NET 8.0
+# CRUD Angular & dotnet
 
 ## Description
 
 ## Notes
 
-This repos was originaly created from to youtube video using .net 6 and angular 14. This is a simple CRUD app. With time that pass, the projet got updated to .net 8 and angular 19.
+This repos was originaly created from to youtube video using .net 6 and angular 14. This is a simple CRUD app. With time that pass, the projet got updated to .net 9 and angular 20.
 
 ### Videos
 
