@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -17,7 +16,6 @@ import { RouterOutlet } from '@angular/router';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        BrowserAnimationsModule,
         MatButtonModule,
         MatCardModule,
         MatTableModule,

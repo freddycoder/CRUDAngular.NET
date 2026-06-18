@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { EditComponent } from '../edit/edit.component';
-import { OpenApiService } from 'src/app/services/openapi.service';
+import { OpenApiService } from '../../../app/services/openapi.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { ActivatedRoute } from '@angular/router';
-import { Schema } from 'src/app/models/openapi';
+import { ActivatedRoute, convertToParamMap, UrlSegment } from '@angular/router';
+import { Schema } from '../../../app/models/openapi';
 
 @Component({
   selector: 'app-list',
@@ -18,12 +18,12 @@ import { Schema } from 'src/app/models/openapi';
     MatButtonModule
   ],
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   private readonly api = inject(OpenApiService);
   private readonly route = inject(ActivatedRoute);
 
   entityList: any[] = [];
-  selectedEntity?: any;
+  selectedEntity: any = {};
   entityName: string = "";
 
   schema?: Schema;
@@ -32,7 +32,20 @@ export class ListComponent {
 
   ngOnInit() {
     this.route.url.subscribe(segment => {
-      this.entityName = segment[0].path;
+      this.init(segment);
+    });
+    this.init([
+      {
+        path: "",
+        parameterMap: convertToParamMap({}),
+        parameters: {}
+      }
+    ]);
+  }
+
+  init(segment: UrlSegment[]) {
+    this.initNew();
+    this.entityName = segment[0].path;
 
       this.api
         .get<any>(this.entityName)
@@ -54,7 +67,6 @@ export class ListComponent {
 
         this.columnToDisplay.push('button');
       });
-    });
   }
 
   initNew() {

@@ -1,6 +1,6 @@
 Write-Host "A script to update the angular version in the project"
 
-$version = "21"
+$version = "22"
 
 function Write-Progress {
     param (

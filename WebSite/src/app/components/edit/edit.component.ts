@@ -5,8 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute } from '@angular/router';
-import { Schema } from 'src/app/models/openapi';
-import { OpenApiService } from 'src/app/services/openapi.service';
+import { Schema } from '../../../app/models/openapi';
+import { OpenApiService } from '../../../app/services/openapi.service';
 
 @Component({
   selector: 'app-edit',

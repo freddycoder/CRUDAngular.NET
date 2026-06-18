@@ -1,5 +1,5 @@
 <mat-card>
-    <button mat-stroked-button color="primary" (click)="initNew()">Create New</button>
+    <button mat-stroked-button color="primary" (click)="initNew()">Initialize</button>
 
     <table mat-table [dataSource]="entityList">
         @for (prop of fields; track $index) {
